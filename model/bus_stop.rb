@@ -1,8 +1,12 @@
-# require 'model_helper'
+require_relative 'model_helper'
 
-# class BusStop
-#   def initialize(stop_id,bus_route,stop_name, long,lat)
+class BusStop
+  def initialize(stop_id ='',bus_route='',route_tag='',predictions= [])
+    @stop_id = stop_id
+    @bus_route = bus_route
+    @route_tag = route_tag
+    @perdictions = perdictions
+  end
 
-#   end
 
-# end
+end

@@ -1,3 +1,5 @@
-# require_relative 'bus_stop'
+ require_relative 'bus_stop'
 require_relative 'bus_stop_loader'
 # require_relative 'long_lat_location'
+require_relative 'bus_time_checker'
+require_relative 'format_stops'

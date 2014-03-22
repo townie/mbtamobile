@@ -1,11 +1,13 @@
 <div class="list-group ">
 
-  <% @stops.each do |stop| %>
+  <% @stops.each_with_index do |stop, index| %>
     <div class = "row">
       <div class="col-md-12">
         <a href="#" class="list-group-item">
          <%= stop["stop_name"]+ "-Distance:  " + sprintf("%.2f", stop["distance"]) + " miles" %>
+
         </a>
+        <a href="#"><%= @stop_list[index]['body']%></a>
       </div>
   </div>
   <% end %>
