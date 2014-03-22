@@ -1,5 +1,4 @@
 require_relative 'model_helper'
-require 'pry'
 
 class FormatStops
 
@@ -22,7 +21,6 @@ class FormatStops
         # clean = bus_stop['predictions']
           clean.each_with_index do |at_this_stop_routes, index|
             s = BusStop.new()
-            binding.pry
 
             s.bus_route= at_this_stop_routes[1][index]["routeTitle"]
 
@@ -41,7 +39,6 @@ class FormatStops
       stop_array<<inner_stop_array
 
     end
-    binding.pry
     stop_array
   end
 
