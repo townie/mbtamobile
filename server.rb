@@ -22,8 +22,8 @@ post '/bus' do
   lat = params["lat"].to_f
   long =params["long"].to_f
   @stops = BusStopLoader.new(lat,long).get_bus_stop_by_location
-
-  @stop_list = BusTimeChecker.new(@stops).get_bus_times
+  @stop_list = (BusTimeChecker.new(@stops).get_bus_times)
+  #@stop_list = FormatStops.new(stuff ).formalize_stops
 
   erb :bus
 end
