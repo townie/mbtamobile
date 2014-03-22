@@ -1,0 +1,17 @@
+.nav{
+  text-align: center;
+
+}
+
+body
+{
+  background-image:url('background.png');
+  background-color:#cccccc;
+  padding-bottom: 50px;
+
+}
+
+.jumbotron {
+  padding: 5px;
+  background-color: lightblue;
+}

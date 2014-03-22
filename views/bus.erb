@@ -1,0 +1,11 @@
+<div class="list-group">
+
+<% @stops.each do |stop| %>
+
+  <a href="#" class="list-group-item">
+     <%= stop["stop_name"]+ " - " + sprintf("%.2f", stop["distance"]) %>
+  </a>
+  <% end %>
+</div>
+
+
