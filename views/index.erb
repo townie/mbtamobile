@@ -2,18 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-
     <title>MBTA EASY</title>
-
-    <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
   </head>
   <body>
  <script>
@@ -32,9 +24,7 @@
     function failure(){
       alert('doesnt work, please use a browser that supports geolocation');
     }
-    </script>
 
-    <script>
     function postToBus(){
       $.post('/bus', {long: $('#long').text(), lat: $('#lat').text()}, function(displayData) {
         $(".display").html(displayData);
@@ -46,45 +36,49 @@
 
 
 
-<div class="jumbotron">
-
-
- <h3> Welcome to MBTA Easy Train & Bus </h3>
-  <h4> A website built to be mobile and fast </h4>
-</div>
- <div class="container-fluid">
-<div class="row">
-  <div class="display"> </div>
-</div>
-
-  <a> To get started: </a>
-  <ul>
-  <li> Choose closest bus </li>
-    <li>OR</li>
-    <li> Choose</li>
-  </ul>
-
-
-
-
+  <div class="jumbotron">
+   <h3> Welcome to MBTA Easy Train & Bus </h3>
+    <h4> A website built to be mobile and fast </h4>
   </div>
 
-<h3>will show up here</h3>
-  <h4 id='long'>long</h4>
-  <h4 id='lat'>lat</h4>
+    <div class="container-fluid">
 
-    <nav class="navbar navbar-inverse navbar-fixed-bottom " role="navigation">
-       <div class="container-fluid">
+    <div class="row">
+      <div class="display"> </div>
+    </div>
 
-         <ul class="nav navbar-nav navbar-left  ">
-            <button type="button" class="navbar-btn btn btn-success" >
-         Find Closest Bus</button>
-            <button type="button" class="btn  navbar-btn btn-warning" >
-          Find Closest Train</button>
-          </ul>
 
-      </div>
-    </nav>
+
+    <div class = "col-md-1">
+      <a> To get started: </a>
+      <ul>
+      <li> Choose closest bus </li>
+        <li>OR</li>
+        <li> Choose</li>
+      </ul>
+    </div>
+
+
+
+
+    </div>
+
+  <h3>will show up here</h3>
+    <h4 id='long'>long</h4>
+    <h4 id='lat'>lat</h4>
+
+      <nav class="navbar navbar-inverse navbar-fixed-bottom " role="navigation">
+         <div class="container-fluid">
+
+           <ul class="nav navbar-nav navbar-left  ">
+              <button type="button" class="navbar-btn btn btn-success" >
+           Find Closest Bus</button>
+              <button type="button" class="btn  navbar-btn btn-warning" >
+            Find Closest Train</button>
+            </ul>
+
+        </div>
+      </nav>
 
 
 
