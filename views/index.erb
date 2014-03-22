@@ -5,6 +5,10 @@
     <title>MBTA EASY</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script src="js/modernizr.js" type="text/javascript"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
 
@@ -33,11 +37,38 @@
       });
     };
     </script>
+<script src="js/modernizr.js" type="text/javascript"></script>
+  <script>
+    $(document).ready(function() {
+      if(!Modernizr.meter){
+        alert('Sorry your brower does not support HTML5 progress bar');
+      } else {
+        var progressbar = $('#progressbar'),
+          max = progressbar.attr('max'),
+          time = (1000/max)*7,
+              value = progressbar.val();
+
+          var loading = function() {
+              value += 1;
+              addValue = progressbar.val(value);
+
+              $('.progress-value').html(value + '%');
+
+              if (value == max) {
+                  clearInterval(animate);
+              }
+          };
+
+          var animate = setInterval(function() {
+              loading();
+          }, time);
+      };
+    });
+  </script>
 
 
 
-
-
+<img src = "EasyTrainBus.png" width="100%" height="auto">
   <div class="jumbotron">
    <div class="container-fluid">
       <div class = "col-md-12">
@@ -46,6 +77,10 @@
     </div>
   </div>
 </div>
+
+
+
+
     <div class="container">
 
     <div class="row">
@@ -53,20 +88,26 @@
     </div>
 
 
-
-    <div class = "col-xs-1">
+<div class="row">
+    <div class = "col-xs-12">
+    <
       <a> To get started: </a>
       <ul>
-      <li> Choose closest bus </li>
+        <li> Choose closest bus </li>
         <li>OR</li>
         <li> Choose</li>
       </ul>
     </div>
+  </div>
 
-
-
-
+  <div class="demo-wrapper html5-progress-bar">
+    <div class="progress-bar-wrapper">
+      <progress id="progressbar" value="0" max="100"></progress>
+      <span class="progress-value">0%</span>
     </div>
+  </div>
+
+
 
   <h3>will show up here</h3>
     <h4 id='long'>long</h4>
