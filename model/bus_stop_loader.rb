@@ -1,5 +1,4 @@
 require_relative 'model_helper'
-require 'pry'
 class BusStopLoader
 
   attr_reader :long, :lat
