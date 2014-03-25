@@ -38,5 +38,18 @@ class BusTimeChecker
 
   end
 
+  def get_one_stop
+      HTTParty.get("http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=mbta&stopId=#{@stops_data}")
+  end
+
+  def get_one_route
+    return HTTParty.get("http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=mbta&r=#{@stops_data}")
+  end
+
+  def format_routeConfig_to_stops(list)
+    list["body"]["route"]["stop"]
+
+  end
+
 
 end

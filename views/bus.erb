@@ -4,11 +4,11 @@
     <div class = "row">
       <div class="col-md-12">
         <a href="#" class="list-group-item">
-         <%= stop["stop_name"]+ "-Distance:  " + sprintf("%.2f", stop["distance"]) + " miles" %>
+         <%= stop["stop_name"]+ "-:  " + sprintf("%.2f", stop["distance"]) + " miles" %>
 
         </a>
 
-        <a href="#"><%= @stop_list[index]['body']%></a>
+        <a href="#"><%= @stop_list[index]%></a>
       </div>
   </div>
   <% end %>

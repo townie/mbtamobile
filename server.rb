@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'net/http'
 require 'json'
+require 'pry'
 
 require_relative 'model/model_helper'
 
@@ -9,16 +10,27 @@ get '/' do
   erb :index
 end
 
-post '/loc' do
-
-  erb '/params[:long]'
+get '/dobus' do
+  erb :dobus
 end
 
-get '/:long' do
-  erb :bus
+get '/:route' do
+  @route = params[:route]
+  stop = BusTimeChecker.new(@route).get_one_route
+
+  @stops= stop["body"]["route"]["stop"]
+  erb :onebus
+end
+
+get '/:route/:stop' do
+  @stop = params["stop"].to_i
+  @stop_data = BusTimeChecker.new(@stop).get_one_stop
+
+  erb :display_one_stop
 end
 
 post '/bus' do
+
   lat = params["lat"].to_f
   long =params["long"].to_f
   @stops = BusStopLoader.new(lat,long).get_bus_stop_by_location
@@ -28,10 +40,6 @@ post '/bus' do
   erb :bus
 end
 
-get '/train' do
-  erb :train
-end
 
-get '/bus_train' do
-  erb :bus_train
-end
+
+

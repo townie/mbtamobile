@@ -5,10 +5,7 @@
     <title>MBTA EASY</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/jquery.js" type="text/javascript"></script>
-  <script src="js/modernizr.js" type="text/javascript"></script>
+      <script src="js/jquery.js" type="text/javascript"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
 
@@ -22,52 +19,24 @@
     function success(position) {
       var mylat = position.coords.latitude;
       var mylong = position.coords.longitude;
+      postToBus(mylat,mylong);
       $('#long').text(mylong);
       $('#lat').text(mylat);
-      postToBus();
+
     }
 
     function failure(){
       alert('doesnt work, please use a browser that supports geolocation');
     }
 
-    function postToBus(){
-      $.post('/bus', {long: $('#long').text(), lat: $('#lat').text()}, function(displayData) {
+    function postToBus(mylat, mylong){
+      $.post('/bus', {long: mylat, lat: mylong}, function(displayData) {
         $(".display").html(displayData);
       });
     };
     </script>
 
   <!-- <script src="js/modernizr.js" type="text/javascript"></script> -->
-  <script>
-    $(document).ready(function() {
-      if(!Modernizr.meter){
-        alert('Sorry your brower does not support HTML5 progress bar');
-      } else {
-        var progressbar = $('#progressbar'),
-          max = progressbar.attr('max'),
-          time = (1000/max)*7,
-              value = progressbar.val();
-
-          var loading = function() {
-              value += 1;
-              addValue = progressbar.val(value);
-
-              $('.progress-value').html(value + '%');
-
-              if (value == max) {
-                  clearInterval(animate);
-              }
-          };
-
-          var animate = setInterval(function() {
-              loading();
-          }, time);
-      };
-    });
-  </script>
-
-
 
 <img src = "EasyTrainBus.png" width="100%" height="auto">
   <div class="jumbotron">
@@ -90,13 +59,6 @@
     </div>
 
 
-<div class="row">
- <div class="demo-wrapper html5-progress-bar">
-    <div class="progress-bar-wrapper">
-      <progress id="progressbar" value="0" max="100"></progress>
-      <span class="progress-value">0%</span>
-    </div>
-  </div>
 
 
     <div class = "col-xs-12">
@@ -115,25 +77,14 @@
     <h4 id='long'>long</h4>
     <h4 id='lat'>lat</h4>
 
-      <nav class="navbar navbar-inverse navbar-fixed-bottom " role="navigation">
-         <div class="container">
-
-           <ul class="nav navbar-nav navbar-left  ">
-              <button type="button" class="navbar-btn btn btn-success" >
-           Find Closest Bus</button>
-              <button type="button" class="btn  navbar-btn btn-warning" >
-            Find Closest Train</button>
-            </ul>
-
-        </div>
-      </nav>
+    <%= erb :navbar %>
 
 
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
   </body>
 </html>
